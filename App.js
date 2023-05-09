@@ -1,23 +1,31 @@
 import React, {useState} from 'react';
-import { Keyboard, KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity,  } from 'react-native';
 import Task from './components/Task';
 
 
+
 export default function App() {
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
 
-  const handleAddTask = () => {
-      Keyboard.dismiss();
-      setTaskItems([...taskItems, task])
-      setTask(null);
-  }
 
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy);
-    } 
+
+
+
+
+
+    const [task, setTask] = useState();
+    const [taskItems, setTaskItems] = useState([]);
+  
+    const handleAddTask = () => {
+        Keyboard.dismiss();
+        setTaskItems([...taskItems, task])
+        setTask(null);
+    }
+  
+    const completeTask = (index) => {
+      let itemsCopy = [...taskItems];
+      itemsCopy.splice(index, 1);
+      setTaskItems(itemsCopy);
+      } 
 
   return (
     <View style={styles.container}>
@@ -56,19 +64,25 @@ export default function App() {
     
   );
 }
-
+const colorBackdrop = "#252525";
+const colorText = "#FFFFFF";
+const colorBorder = "#939393";
+const colorItems = "#777777";
+const gradient1 = "#4200FF";
+const gradient2 = "#FF00E5";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D2DED2',
+    backgroundColor: `${colorBackdrop}`,
   },
   tasksWrapper: {
     paddingTop: 80,
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontSize: 23,
+    fontSize: 25,
     fontWeight: 'bold',
+    color: `${colorText}`,
   },
   items: {
     marginTop: 35,
@@ -86,28 +100,28 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     width: 260,
     height: 40,
-    backgroundColor: '#9F9F9F',
-    borderRadius: 60,
-    borderColor: '#C0C0C0',
+    backgroundColor: `${colorItems}`,
+    borderRadius: 8,
+    borderColor: `${colorBorder}`,
     borderWidth: 1,
     marginBottom: 10,
   },
   addWrapper: {
     width: 40,
     height: 40,
-    backgroundColor: '#9F9F9F',
+    backgroundColor: `${colorItems}`,
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#C0C0C0',
+    borderColor: `${colorBorder}`,
     borderWidth: 1,
     marginBottom: 10,
   },
   addText: {},
   shadowProp: {
-    shadowColor: '#171717',
+    shadowColor: '#000000',
     shadowOffset: {width: -2, height: 4},
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.5,
     shadowRadius: 3,
 },
 });
