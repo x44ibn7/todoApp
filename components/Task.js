@@ -1,29 +1,38 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Task = (props) => {
 
     return (
-    <View style={[styles.item, styles.shadowProp]}>
+       
+
+         <LinearGradient colors={['rgba(0,0,100,0.5)', 'transparent']} style={[styles.item, styles.shadowProp]}>
         <View style={styles.itemLeft}>
             <View style={styles.square}></View>
             <Text style={styles.itemText}>{props.text}</Text>
         </View>
-    <View style={styles.circular}></View>
-    </View>
+        </LinearGradient>
+
+
+
 
     )
 }
+
+const colorText = "#FFFFFF";
+const colorBorder = "#939393";
+const colorItems = "#777777";
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: '#9F9F9F',
+        backgroundColor: `${colorItems}`,
         padding: 15,
         borderRadius: 8,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: 15,
-        borderColor: '#C0C0C0',
+        borderColor: `${colorBorder}`,
         borderWidth: 1,
     },
     itemLeft: {
@@ -34,26 +43,21 @@ const styles = StyleSheet.create({
     square: {
         width:24,
         height:24,
-        backgroundColor: '#012C00',
-        opacity: 0.4,
-        borderRadius: 10,
+        backgroundColor: '#FFFFFF',
+        borderColor: `${colorBorder}`,
+        borderWidth: 1,
+        borderRadius: 5,
         marginRight: 15,
     },
     itemText: {
         maxWidth: '80%',
-    },
-    circular: {
-        width: 12,
-        height:12,
-        borderColor: '#16521C',
-        borderWidth: 2,
-        borderRadius: 5,
+        color: `${colorText}`,
     },
     shadowProp: {
-        shadowColor: '#171717',
+        shadowColor: '#000000',
         shadowOffset: {width: -2, height: 4},
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
+        shadowOpacity: 1,
+        shadowRadius: 10,
     },
 });
 export default Task;
